@@ -12,7 +12,7 @@ pipeline {
             }
         }
         
-        stage('Push Docker Image') {
+        stage('Push Docker Image on Docker Hub') {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred', toolName: 'docker') {
