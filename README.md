@@ -251,6 +251,22 @@ rules:
     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 ```
 -  apply the service-account.yml file
+- **ROLE-Binding:** bind the service-account with the service-role.create a bind file 'account-role-bind.yml';
+- ``` yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: app-rolebinding
+  namespace: webapps 
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: app-role 
+subjects:
+- namespace: webapps 
+  kind: ServiceAccount
+  name: jenkins
+  ```
 
 **Cleanup:**
 - To delete the EKS cluster and associated resources:
