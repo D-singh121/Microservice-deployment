@@ -268,11 +268,21 @@ rules:
       name: jenkins           
   ```
 ## After role get binded with service account we need a token to communicate with eks cluster:
--**Secret:** create a one more 'secret.yml' file and create  the Token.
-
-
-
-
+**Secret:** create a one more 'secret.yml' file and create  the Token.
+  ``` yaml
+   apiVersion: v1
+   kind: Secret
+   type: kubernetes.io/service-account-token
+   metadata:
+     name: mysecretname
+     annotations:
+       kubernetes.io/service-account.name: myserviceaccount
+```
+- apply this secret file using kubectl command;
+**TOKEN:**
+ ```bash
+kubectl describe secret mysecretname -n webapps
+```
 
 **Cleanup:**
 - To delete the EKS cluster and associated resources:
