@@ -305,6 +305,14 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IklvT1UzUlFNcnY1aHhGN3ZwMHU5OEhUR3JGOG9XanplQlZxbFBM
 ```
 **Credential:** save this credential as plain secret-text in jenkins credentials;
 ## Now run the deployment file by Jenkinsfile present on main branch. after this we can see the application running on the loadblacer external URL;
+```json
+5000/TCP       4m27s
+frontend                NodePort       10.100.101.12    <none>                                                                     80:31636/TCP   4m24s
+frontend-external       LoadBalancer   10.100.78.172    a52df5946b8144ab587cff33845b4104-1447625668.ap-south-1.elb.amazonaws.com   80:32631/TCP   4m23s
+
+// URL: a52df5946b8144ab587cff33845b4104-1447625668.ap-south-1.elb.amazonaws.com
+```
+
 **Cleanup:** perform the cleaning task after all finished work;
 - To delete the EKS cluster and associated resources:
 ```bash
