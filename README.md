@@ -268,6 +268,11 @@ rules:
       name: jenkins           
   ```
 ## After role get binded with service account we need a token to communicate with eks cluster:
+-**Secret:** create a one more 'secret.yml' file and create  the Token.
+
+
+
+
 
 **Cleanup:**
 - To delete the EKS cluster and associated resources:
