@@ -160,18 +160,17 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 - Multibranch Scan Webhook Trigger
   
 **Configure Plugins:**
-Configure Docker with the default image and Docker Hub credentials.
+- Configure Docker with the default image and Docker Hub credentials.
 
 **Jenkins Pipeline Setup:**
-Create a Multibranch Pipeline:
-Go to Dashboard > All > enter your project name and choose 'Multibranch Pipeline' > create.
+- Create a Multibranch Pipeline:
+- Go to Dashboard > All > enter your project name and choose 'Multibranch Pipeline' > create.
 
 Webhook URL:
 ```plaintext
 http://<your-instance-public-ip>:8080/multibranch-webhook-trigger/invoke?token=Devesh121
 ```
-Jenkinsfile Example:
-
+**Jenkinsfile Example:**
 groovy
 Copy code
 pipeline {
