@@ -2,14 +2,14 @@
 ## Overview:
 This repository contains instructions for deploying a set of microservices using AWS EKS and Jenkins. The deployment involves creating an EC2 instance, setting up an EKS cluster, configuring Jenkins, and deploying the microservices.
 
-Microservices
-There are 10 microservices located in different Git branches. We use a multibranch pipeline and webhook for deployment.
+## Microservices
+There are 11 microservices located in different Git branches. We use a multibranch pipeline and webhook for deployment.
 
-Inbound Port Configuration
+## Inbound Port Configuration
 Ensure the following ports are open:
-
 25, 3000-10000, 80, 443, 22, 6443, 465, 27017, 30000-32767 for IPv4 everywhere.
-EC2 Instance Setup
+
+## EC2 Instance Setup
 Instance Type: t2.large (2 CPUs, 8GB RAM)
 Key Pair: Use microservice
 Storage: 25GB
