@@ -212,7 +212,7 @@ metadata:
 -  apply the service-account.yml file
 - **Role:** now create a role with 'vi service-role.yml'.
  ```yaml
-  apiVersion: rbac.authorization.k8s.io/v1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: app-role
@@ -252,7 +252,7 @@ rules:
 ```
 -  apply the service-account.yml file
 - **ROLE-Binding:** bind the service-account with the service-role.create a bind file 'account-role-bind.yml';
-- ``` yaml
+ ``` yaml
     apiVersion: rbac.authorization.k8s.io/v1
     kind: RoleBinding
     metadata:
