@@ -84,16 +84,16 @@ eksctl create cluster --name=EKS-1 \
 eksctl delete cluster --name EKS-1 --region ap-south-1
 ```
 
-## Associate IAM OIDC Provider
-bash
-Copy code
+## Associate IAM OIDC Provider to accept the IAM credential in EKS cluster: 
+```bash
 eksctl utils associate-iam-oidc-provider \
     --region ap-south-1 \
     --cluster EKS-1 \
     --approve
-## Create EKS Node Group
-bash
-Copy code
+```
+
+## Create EKS Node Group as worker
+```bash
 eksctl create nodegroup --cluster=EKS-1 \
                        --region=ap-south-1 \
                        --name=node2 \
@@ -110,32 +110,29 @@ eksctl create nodegroup --cluster=EKS-1 \
                        --full-ecr-access \
                        --appmesh-access \
                        --alb-ingress-access
+```
+
 **To delete node groups:**
-bash
-Copy code
+```bash
 eksctl get nodegroup --cluster=EKS-1	
 eksctl delete nodegroup --cluster=EKS-1 --name=node2
-
-## Jenkins Setup
+```
+## Jenkins Setup:
 **Install Docker:**
-bash
-Copy code
+```bash
 sudo apt install docker.io
 sudo chmod 666 /var/run/docker.sock
 sudo usermod -aG docker $USER
 sudo usermod -aG docker jenkins
-Install Jenkins
-Install Java JDK 17:
-
-bash
-Copy code
+```
+**Install Java JDK 17:**
+```bash
 sudo apt update
 sudo apt install fontconfig openjdk-17-jre
 java -version
-Install Jenkins:
-
-bash
-Copy code
+```
+**Install Jenkins:**
+```bash
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
 echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
@@ -143,34 +140,35 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt-get update
 sudo apt-get install jenkins -y
-Start Jenkins:
-
-bash
-Copy code
+```
+**Enable ans Start Jenkins service:**
+``` bash
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
 sudo systemctl status jenkins
-Access Jenkins:
-Open http://<your-instance-public-ip>:8080 and use the initial password from:
-
-bash
-Copy code
+```
+**Access Jenkins:**
+ "http://<your-instance-public-ip>:8080" and use the initial password from below command in local server:
+```bash
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-Install Plugins
-Docker, Docker Pipeline
-Kubernetes, Kubernetes CLI
-Multibranch Scan Webhook Trigger
-Configure Plugins
+```
+
+## Install Plugins in jenkins manage plugins:
+- Docker, Docker Pipeline
+- Kubernetes, Kubernetes CLI
+- Multibranch Scan Webhook Trigger
+  
+**Configure Plugins:**
 Configure Docker with the default image and Docker Hub credentials.
-Jenkins Pipeline Setup
+
+**Jenkins Pipeline Setup:**
 Create a Multibranch Pipeline:
 Go to Dashboard > All > enter your project name and choose 'Multibranch Pipeline' > create.
 
 Webhook URL:
-
-plaintext
-Copy code
+```plaintext
 http://<your-instance-public-ip>:8080/multibranch-webhook-trigger/invoke?token=Devesh121
+```
 Jenkinsfile Example:
 
 groovy
