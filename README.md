@@ -15,21 +15,19 @@ Ensure the following ports are open:
 3. **Storage:** 25GB,
 
 ## IAM User Creation
-Create an IAM user named "EKS user" with the following access keys and policies:
+Create an IAM user named "EKS user" with the following access keys and policies and save in a file.
+- User: dee-microservice
+- Access Key: your-access-key
+- Secret Access Key: your-secret-access-key
 
-plaintext
-Copy code
-User: dee-microservice
-Access Key: AKIA3FLDZWXYG6LNQW22
-Secret Access Key: tSPs9RW9efc9g6aCQ/iBcP9tibjq0qbQTntSfYqa
-Policies to Attach
-AmazonEC2FullAccess
-AmazonEKS_CNI_Policy
-AmazonEKSClusterPolicy
-AmazonEKSWorkerNodePolicy
-AWSCloudFormationFullAccess
-IAMFullAccess
-Custom Policy:
+**Policies to Attach**
+- AmazonEC2FullAccess
+- AmazonEKS_CNI_Policy
+- AmazonEKSClusterPolicy
+- AmazonEKSWorkerNodePolicy
+- AWSCloudFormationFullAccess
+- IAMFullAccess
+**Custom Policy:**
 json
 Copy code
 {
