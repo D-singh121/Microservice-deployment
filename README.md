@@ -44,52 +44,55 @@ Create an IAM user named "EKS user" with the following access keys and policies 
 ## CLI Tools Installation
 Install the following CLI tools on the EC2 instance:
 
-1. **AWS CLI**
+1. **AWS CLI:**
 bash
 Copy code
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 sudo apt install unzip
 unzip awscliv2.zip
 sudo ./aws/install
-kubectl
+
+2. **kubectl:**
 bash
 Copy code
 curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin
 kubectl version --short --client
-eksctl
+3. **eksctl:**
 bash
 Copy code
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
-EKS Cluster Setup
-Configure AWS CLI with your credentials and region (ap-south-1):
 
+## EKS Cluster Setup
+Configure AWS CLI with your credentials and region (ap-south-1):
 bash
 Copy code
 aws configure
-Create EKS Cluster
+
+**Create EKS Cluster**
 bash
 Copy code
 eksctl create cluster --name=EKS-1 \
                       --region=ap-south-1 \
                       --zones=ap-south-1a,ap-south-1b \
                       --without-nodegroup
-To delete the cluster:
 
+**To delete the cluster:**
 bash
 Copy code
 eksctl delete cluster --name EKS-1 --region ap-south-1
-Associate IAM OIDC Provider
+
+## Associate IAM OIDC Provider
 bash
 Copy code
 eksctl utils associate-iam-oidc-provider \
     --region ap-south-1 \
     --cluster EKS-1 \
     --approve
-Create EKS Node Group
+## Create EKS Node Group
 bash
 Copy code
 eksctl create nodegroup --cluster=EKS-1 \
@@ -108,14 +111,14 @@ eksctl create nodegroup --cluster=EKS-1 \
                        --full-ecr-access \
                        --appmesh-access \
                        --alb-ingress-access
-To delete node groups:
-
+**To delete node groups:**
 bash
 Copy code
 eksctl get nodegroup --cluster=EKS-1	
 eksctl delete nodegroup --cluster=EKS-1 --name=node2
-Jenkins Setup
-Install Docker
+
+## Jenkins Setup
+**Install Docker:**
 bash
 Copy code
 sudo apt install docker.io
