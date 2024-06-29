@@ -279,9 +279,25 @@ rules:
        kubernetes.io/service-account.name: myserviceaccount
 ```
 - apply this secret file using kubectl command;
-**TOKEN:**
+- **Token:**
  ```bash
 kubectl describe secret mysecretname -n webapps
+```
+- **Output:**
+```bash
+Name:         mysecretname
+Namespace:    webapps
+Labels:       <none>
+Annotations:  kubernetes.io/service-account.name: jenkins
+              kubernetes.io/service-account.uid: ac862a73-9a76-4767-93d5-414b96292570
+
+Type:  kubernetes.io/service-account-token
+
+Data
+====
+ca.crt:     1107 bytes
+namespace:  7 bytes
+token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IklvT1UzUlFNcnY1aHhGN3ZwMHU5OEhUR3JGOG9XanplQlZxbFBMSVppVUkifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ3ZWJhcHBzIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6Im15c2VjcmV0bmFtZSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJqZW5raW5zIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiYWM4NjJhNzMtOWE3Ni00NzY3LTkzZDUtNDE0Yjk2MjkyNTcwIiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OndlYmFwcHM6amVua2lucyJ9.lrsHTx6nWoRatNjHSivhV0LpSOCdhPlpi3hwih4Ys3B5tOseeEr-bjmybxrTRnQb4b1Oe7wrquWqnuXFoVzVrLjk61pZGW66eFQEMcdpEhNSAWN4DyYIArxyw9TIWGtYS3PI9NeyvXCgmR8CPgHkFqiu9ScLInWzVH1QOVt65-TRJmaMyUp_sK-fOIQgdVUBZUqdPnQb4YCilLK4sYy5Yqv-VFvlBwCzhJuy1R3KY8XK19zVvYL-ATr3OOs3nyLUIcLPVXI6fnr6zTK2_Fku7VslrPyJ1DKMOgrWfXzK9guPyjcdMg2-06gLjylyt-a2zQp8VQbxSYVUZT3QhFDBVA
 ```
 
 **Cleanup:**
