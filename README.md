@@ -210,7 +210,7 @@ metadata:
   namespace: webapps
 ```
 -  apply the service-account.yml file
-- **Role:**now create a role with 'vi service-role.yml'.
+- **Role:** now create a role with 'vi service-role.yml'.
  ```yaml
   apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -250,7 +250,7 @@ rules:
       - services
     verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 ```
-
+-  apply the service-account.yml file
 
 **Cleanup:**
 - To delete the EKS cluster and associated resources:
