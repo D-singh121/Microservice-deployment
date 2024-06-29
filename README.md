@@ -10,11 +10,11 @@ Ensure the following ports are open:
 25, 3000-10000, 80, 443, 22, 6443, 465, 27017, 30000-32767 for IPv4 everywhere.
 
 ## EC2 Instance Setup
-**Instance Type:** t2.large (2 CPUs, 8GB RAM)
-Key Pair: Use microservice
-Storage: 25GB
-Services: EKS cluster master, Jenkins
-IAM User Creation
+**Instance Type:** t2.large (2 CPUs, 8GB RAM),
+**Key Pair:** Use microservice or any as per choice,
+**Storage:** 25GB,
+
+## IAM User Creation
 Create an IAM user named "EKS user" with the following access keys and policies:
 
 plaintext
