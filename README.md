@@ -194,9 +194,10 @@ pipeline {
     }
 }
 ```
-**Deploy Microservices:**
+## Deploy Microservices:
 - Commit changes in the Jenkinsfile of the associated Git repo branches to automatically trigger the pipeline by webhook and jenkins.
-
+**For security purpose we are going to use a Service Account ,Role and Role binding with service account. for that:**
+  
 **Cleanup:**
 - To delete the EKS cluster and associated resources:
 ```bash
