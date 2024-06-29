@@ -10,7 +10,7 @@ Ensure the following ports are open:
 25, 3000-10000, 80, 443, 22, 6443, 465, 27017, 30000-32767 for IPv4 everywhere.
 
 ## EC2 Instance Setup
-Instance Type: t2.large (2 CPUs, 8GB RAM)
+**Instance Type:** t2.large (2 CPUs, 8GB RAM)
 Key Pair: Use microservice
 Storage: 25GB
 Services: EKS cluster master, Jenkins
