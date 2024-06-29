@@ -29,7 +29,6 @@ Create an IAM user named "EKS user" with the following access keys and policies 
 - IAMFullAccess
 - **Custom Policy:**
 ```json
-   COPY
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -46,45 +45,44 @@ Create an IAM user named "EKS user" with the following access keys and policies 
 Install the following CLI tools on the EC2 instance:
 
 1. **AWS CLI:**
-bash
-Copy code
+```bash
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 sudo apt install unzip
 unzip awscliv2.zip
 sudo ./aws/install
+```
 
 2. **kubectl:**
-bash
-Copy code
+```bash
 curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.19.6/2021-01-05/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin
 kubectl version --short --client
+```
 3. **eksctl:**
-bash
-Copy code
+```bash
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
-
+```
 ## EKS Cluster Setup
 Configure AWS CLI with your credentials and region (ap-south-1):
-bash
-Copy code
+```bash
 aws configure
+```
 
 **Create EKS Cluster**
-bash
-Copy code
+```bash
 eksctl create cluster --name=EKS-1 \
                       --region=ap-south-1 \
                       --zones=ap-south-1a,ap-south-1b \
                       --without-nodegroup
 
+```
 **To delete the cluster:**
-bash
-Copy code
+```bash
 eksctl delete cluster --name EKS-1 --region ap-south-1
+```
 
 ## Associate IAM OIDC Provider
 bash
