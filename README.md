@@ -27,7 +27,7 @@ Create an IAM user named "EKS user" with the following access keys and policies 
 - AmazonEKSWorkerNodePolicy
 - AWSCloudFormationFullAccess
 - IAMFullAccess
-**Custom Policy:**
+- **Custom Policy:**
 json
 Copy code
 {
