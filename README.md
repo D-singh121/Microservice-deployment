@@ -168,11 +168,10 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 Webhook URL:
 ```plaintext
-http://<your-instance-public-ip>:8080/multibranch-webhook-trigger/invoke?token=Devesh121
+http://<your-instance-public-ip>:8080/multibranch-webhook-trigger/invoke?token=your-token-name
 ```
 **Jenkinsfile Example:**
-groovy
-Copy code
+```groovy
 pipeline {
     agent any
 
@@ -194,18 +193,17 @@ pipeline {
         }
     }
 }
-Deploy Microservices:
-Commit changes in the Jenkinsfile of the associated Git repo branches to trigger the pipeline.
+```
+**Deploy Microservices:**
+- Commit changes in the Jenkinsfile of the associated Git repo branches to automatically trigger the pipeline by webhook and jenkins.
 
-Cleanup
-To delete the EKS cluster and associated resources:
-
-bash
-Copy code
+**Cleanup:**
+- To delete the EKS cluster and associated resources:
+```bash
 eksctl delete cluster --name EKS-1 --region ap-south-1 --force
 eksctl get nodegroup --cluster=EKS-1	
 eksctl delete nodegroup --cluster=EKS-1 --name=node2
-
+```
 
 
 
