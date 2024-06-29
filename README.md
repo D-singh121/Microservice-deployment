@@ -29,6 +29,7 @@ Create an IAM user named "EKS user" with the following access keys and policies 
 - IAMFullAccess
 - **Custom Policy:**
 ```json
+   COPY
 {
     "Version": "2012-10-17",
     "Statement": [
