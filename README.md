@@ -148,8 +148,9 @@ sudo systemctl start jenkins
 sudo systemctl status jenkins
 ```
 **Access Jenkins:**
- "http://<your-instance-public-ip>:8080" and use the initial password from below command in local server:
+Access the jenkins server on port 8080 of your host machine with there public-ip associated:
 ```bash
+"http://<your-instance-public-ip>:8080" 
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
