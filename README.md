@@ -267,6 +267,7 @@ rules:
       kind: ServiceAccount
       name: jenkins           
   ```
+## After role get binded with service account we need a token to communicate with eks cluster:
 
 **Cleanup:**
 - To delete the EKS cluster and associated resources:
