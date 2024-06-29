@@ -201,7 +201,7 @@ pipeline {
   ```bash
   kubectl create namespace webapps
   ```
-- **Service account: create a file with the name of "service-account.yml" and paste below lines.**
+- **Service account:** create a file with the name of "service-account.yml" and paste below lines.
 ```yaml
 apiVersion: v1
 kind: ServiceAccount
@@ -209,7 +209,49 @@ metadata:
   name: jenkins
   namespace: webapps
 ```
- 
+-  apply the service-account.yml file
+- **Role:**now create a role with 'vi service-role.yml'.
+ ```yaml
+  apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: app-role
+  namespace: webapps
+rules:
+  - apiGroups:
+        - ""
+        - apps
+        - autoscaling
+        - batch
+        - extensions
+        - policy
+        - rbac.authorization.k8s.io
+    resources:
+      - pods
+      - componentstatuses
+      - configmaps
+      - daemonsets
+      - deployments
+      - events
+      - endpoints
+      - horizontalpodautoscalers
+      - ingress
+      - jobs
+      - limitranges
+      - namespaces
+      - nodes
+      - pods
+      - persistentvolumes
+      - persistentvolumeclaims
+      - resourcequotas
+      - replicasets
+      - replicationcontrollers
+      - serviceaccounts
+      - services
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+```
+
+
 **Cleanup:**
 - To delete the EKS cluster and associated resources:
 ```bash
