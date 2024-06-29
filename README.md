@@ -28,8 +28,7 @@ Create an IAM user named "EKS user" with the following access keys and policies 
 - AWSCloudFormationFullAccess
 - IAMFullAccess
 - **Custom Policy:**
-json
-Copy code
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -41,6 +40,7 @@ Copy code
         }
     ]
 }
+```
 CLI Tools Installation
 Install the following CLI tools on the EC2 instance:
 
