@@ -41,10 +41,10 @@ Create an IAM user named "EKS user" with the following access keys and policies 
     ]
 }
 ```
-CLI Tools Installation
+## CLI Tools Installation
 Install the following CLI tools on the EC2 instance:
 
-AWS CLI
+1. **AWS CLI**
 bash
 Copy code
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
